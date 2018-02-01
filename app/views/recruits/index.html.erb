@@ -1,3 +1,19 @@
-<h1>hello</h1>
+<div class="row">
+	<% @recruits.each do |recruit| %>
+			<div class="col-lg-2">
+				<div class="card">
+				  <div class="card-header"><b style="font-size: 15px;"><%= recruit.name %></b></div>
+				  <div class="card-body">
+				  	<p><b>Email:</b> <%= recruit.email %></p>
+				  	<p><b>Phone Number:</b> <%= recruit.phone_number %></p>
+				  	<p><b>Description:</b> <br> <%= recruit.description %></p>
+				  	<%# start_date will be added as a circle graph %>
+				  </div>
+				  <div class="card-footer">next task</div>
+				</div><br>
+			</div>
+	<% end %>
+</div>
+
 
 <%= link_to 'New Recruit', new_recruit_path %>
