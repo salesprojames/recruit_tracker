@@ -9,7 +9,7 @@
 				  	<p><b>Phone Number:</b> <%= recruit.phone_number %></p>
 				  	<p><b>Description:</b> <br> <%= recruit.description %></p>
 				  	<%# start_date will be added as a circle graph %>
-				  	<div id="start_date_<%= recruit.id %>"></div>
+				  	<div id="start_date_<%= recruit.id %>"><br><%= recruit.start_date %></div>
 				  </div>
 				  <div class="card-footer">
 				  	<b><%= task.name %></b> due <%= task.due_date %>
