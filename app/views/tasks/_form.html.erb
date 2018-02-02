@@ -1,0 +1,25 @@
+<%= form_for([@recruit, @task]) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control', required: true %><br>
+
+    <%= form.label :due_date %>
+    <%= form.date_field :due_date, class: 'form-control', required: true %><br>
+
+  </div>
+
+  <%= form.submit "Publish", class: 'btn btn-primary' %>
+
+<% end %>

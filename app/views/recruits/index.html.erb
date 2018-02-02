@@ -1,15 +1,20 @@
 <div class="row">
 	<% @recruits.each do |recruit| %>
+	<% task = recruit.tasks.where(complete: false).first %>
 			<div class="col-lg-2">
 				<div class="card">
 				  <div class="card-header"><b style="font-size: 15px;"><%= recruit.name %></b></div>
-				  <div class="card-body">
+				  <div class="card-body <% if recruit.closed %>closed<% end -%>">
 				  	<p><b>Email:</b> <%= recruit.email %></p>
 				  	<p><b>Phone Number:</b> <%= recruit.phone_number %></p>
 				  	<p><b>Description:</b> <br> <%= recruit.description %></p>
 				  	<%# start_date will be added as a circle graph %>
+				  	<div id="start_date_<%= recruit.id %>"></div>
 				  </div>
-				  <div class="card-footer">next task</div>
+				  <div class="card-footer">
+				  	<b><%= task.name %></b> due <%= task.due_date %>
+				  	<% if !task.complete %><%= link_to "Complete", complete_recruit_task_path(recruit, task) %><% end -%>
+				  </div>
 				</div><br>
 			</div>
 	<% end %>
@@ -17,3 +22,16 @@
 
 
 <%= link_to 'New Recruit', new_recruit_path %>
+
+<% @recruits.each do |recruit| %>
+<script>
+	var value = <%= (30 - (recruit.start_date + 30.days - Date.today).to_f) / 30 %>;
+	  $('#start_date_<%= recruit.id %>').circleProgress({
+	    value: value,
+	    size: 80,
+	    fill: {
+	      gradient: ["red", "orange"]
+	    }
+	  });
+</script>
+<% end -%>

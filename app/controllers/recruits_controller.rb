@@ -3,7 +3,13 @@ class RecruitsController < ApplicationController
 
 
   def index
-    @recruits = Recruit.all
+    @recruits = Recruit.all.uniq
+    @recruits.each do |recruit|
+      if (30 - (recruit.start_date + 30.days - Date.today).to_f) / 30 >= 1
+        recruit.closed = true
+        recruit.save
+      end
+    end
   end
 
   def show
@@ -14,6 +20,7 @@ class RecruitsController < ApplicationController
 
   def new
     @recruit = Recruit.new
+    @recruit.tasks.build
   end
 
   def create
@@ -21,7 +28,7 @@ class RecruitsController < ApplicationController
 
     respond_to do |format|
       if @recruit.save
-        format.html { redirect_to @recruit, notice: 'Recruit was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Recruit was successfully created.' }
         format.json { render :show, status: :created, location: @recruit }
       else
         format.html { render :new }
@@ -56,7 +63,7 @@ class RecruitsController < ApplicationController
     end
 
     def recruit_params
-      params.require(:recruit).permit(:name, :phone_number, :email, :description, :start_date, :closed)
+      params.require(:recruit).permit(:name, :phone_number, :email, :description, :start_date, :closed, tasks_attributes: [:id, :name, :due_date])
     end
 
 end
