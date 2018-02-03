@@ -5,7 +5,7 @@ class RecruitsController < ApplicationController
   def index
     @recruits = Recruit.all.uniq
     @recruits.each do |recruit|
-      if (30 - (recruit.start_date + 30.days - Date.today).to_f) / 30 >= 1
+      if (Date.today - recruit.start_date).to_f == 30
         recruit.closed = true
         recruit.save
       end
