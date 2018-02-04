@@ -7,33 +7,37 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" href="css/separate/vendor/slick.min.css">
-    <link rel="stylesheet" href="css/separate/vendor/select2.min.css">
-    <link rel="stylesheet" href="css/separate/pages/widgets.min.css">
-    <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
-    <link rel="stylesheet" href="css/lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/lib/datatables-net/datatables.min.css">
+    <link rel="stylesheet" href="/css/separate/vendor/datatables-net.min.css">
+
+    <link rel="stylesheet" href="/css/separate/vendor/slick.min.css">
+    <link rel="stylesheet" href="/css/separate/vendor/select2.min.css">
+    <link rel="stylesheet" href="/css/separate/pages/widgets.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 
   </head>
 
   <body>
 
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-      <a class="navbar-brand" href="#">Recruit Tracker</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <%= link_to 'Recruits', recruits_path, class: 'nav-link' %>
-          </li>
-        </ul>
-      </div>
+      <%= link_to "Recruit Tracker", root_path, class: 'navbar-brand' %>
     </nav>
 
     <div class="container-fluid">
       <%= yield %>
     </div>
+
+    <script src="js/lib/asPieProgress/jquery-asPieProgress.min.js"></script>
+    <script src="js/lib/select2/select2.full.min.js"></script>
+    <script type="text/javascript" src="js/lib/match-height/jquery.matchHeight.min.js"></script>
+    <script src="js/lib/slick-carousel/slick.min.js"></script>
+
+    <script src="/js/lib/popper/popper.min.js"></script>
+    <script src="/js/lib/tether/tether.min.js"></script>
+    <script src="/js/plugins.js"></script>
+
+    <script src="/js/lib/datatables-net/datatables.min.js"></script>
+
   </body>
 </html>

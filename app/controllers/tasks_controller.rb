@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   # dont know if i will need to use this page
   def index
-    @tasks = Task.all
+    @tasks = @recruit.tasks.all
   end
 
   def show

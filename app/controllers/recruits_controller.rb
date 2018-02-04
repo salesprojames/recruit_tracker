@@ -40,7 +40,7 @@ class RecruitsController < ApplicationController
   def update
     respond_to do |format|
       if @recruit.update(recruit_params)
-        format.html { redirect_to @recruit, notice: 'Recruit was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Recruit was successfully updated.' }
         format.json { render :show, status: :ok, location: @recruit }
       else
         format.html { render :edit }
@@ -52,7 +52,7 @@ class RecruitsController < ApplicationController
   def destroy
     @recruit.destroy
     respond_to do |format|
-      format.html { redirect_to recruits_url, notice: 'Recruit was successfully destroyed.' }
+      format.html { redirect_to recruits_path, notice: 'Recruit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

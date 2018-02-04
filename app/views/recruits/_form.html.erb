@@ -27,13 +27,15 @@
     <%= form.label :start_date %>
     <%= form.date_field :start_date, class: 'form-control', required: true %><br>
 
-    <h2>Create A Task</h2>
-    <%= form.fields_for :tasks do |task_form| %>
-      <%= task_form.label :name %>
-      <%= task_form.text_field :name, class: 'form-control', required: true %><br>
-      <%= task_form.label :due_date %>
-      <%= task_form.date_field :due_date, class: 'form-control', required: true %><br>
-    <% end %>
+    <% if current_page?(action: 'new') %>
+      <h2>Create A Task</h2>
+      <%= form.fields_for :tasks do |task_form| %>
+        <%= task_form.label :name %>
+        <%= task_form.text_field :name, class: 'form-control', required: true %><br>
+        <%= task_form.label :due_date %>
+        <%= task_form.date_field :due_date, class: 'form-control', required: true %><br>
+      <% end %>
+    <% end -%>
 
   </div>
 

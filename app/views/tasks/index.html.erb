@@ -1,0 +1,38 @@
+<h1 class="text-center">Tasks For <%= @recruit.name %></h1>
+
+<section class="card">
+				<div class="card-block">
+					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+						<tr>
+							<th>Task</th>
+							<th>Date Due</th>
+						</tr>
+						</thead>
+						<tfoot>
+						<tr>
+							<th>Task</th>
+							<th>Date Due</th>
+						</tr>
+						</tfoot>
+						<tbody>
+						<% @tasks.each do |task| %>
+							<tr>
+								<td><%= task.name %></td>
+								<td><%= task.due_date %></td>
+							</tr>
+						<% end -%>
+						
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+	
+	<script>
+		$(function() {
+			$('#example').DataTable();
+		});
+	</script>
+
+<script src="/js/app.js"></script>
