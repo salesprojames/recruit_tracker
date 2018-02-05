@@ -1,5 +1,6 @@
 class Recruit < ApplicationRecord
 
+	has_many :messages
   has_many :tasks, inverse_of: :recruit
   accepts_nested_attributes_for :tasks
 
