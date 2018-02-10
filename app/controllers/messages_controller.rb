@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :reply
   before_action :load_recruit
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
