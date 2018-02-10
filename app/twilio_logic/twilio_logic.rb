@@ -4,7 +4,9 @@ class TwilioLogic
 
   def initialize
     @client ||= Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
-    @from_number ||= params["From"]
+    if params != nil
+      @from_number = params["From"]
+    end
     @twilio_number = "+18147534377"
   end
 
