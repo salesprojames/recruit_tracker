@@ -4,9 +4,6 @@ class TwilioLogic
 
   def initialize
     @client ||= Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
-    if params != nil
-      @from_number = params["From"]
-    end
     @twilio_number = "+18147534377"
   end
 
@@ -19,6 +16,8 @@ class TwilioLogic
   end
 
 	def reply(params, request)
+
+    from_number = params["From"]
 
     message_body = params["Body"]
     save_message_body(request, message_body)
