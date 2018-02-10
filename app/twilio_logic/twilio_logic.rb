@@ -9,7 +9,7 @@ class TwilioLogic
 
   def send_outgoing_message(recruit, message)
     @client.messages.create(
-      from: twilio_number,
+      from: @twilio_number,
       to: recruit.phone_number,
       body: message.body
     )
