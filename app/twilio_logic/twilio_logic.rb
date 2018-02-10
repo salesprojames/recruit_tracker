@@ -35,7 +35,7 @@ class TwilioLogic
       #send_alert_message(from_number)
     else
       Message.create(body: message_body, recruit_id: recruit.id, sent_by_recruit: true)
-      s#end_alert_message(recruit.name)
+      #send_alert_message(recruit.name)
     end
 
   end
