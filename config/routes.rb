@@ -4,11 +4,7 @@ Rails.application.routes.draw do
 
   resources :recruits do
 
-  	resources :messages do
-  		collection do
-  			post 'reply'
-  		end
-  	end
+  	resources :messages
 
     resources :tasks do
     	member do
@@ -16,5 +12,7 @@ Rails.application.routes.draw do
     	end
     end
   end
+
+  post 'messages/reply'
 
 end
