@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205171122) do
+ActiveRecord::Schema.define(version: 20180210221037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180205171122) do
   create_table "messages", force: :cascade do |t|
     t.string "body"
     t.integer "recruit_id"
+    t.boolean "sent_by_recruit", default: false
   end
 
   create_table "recruits", force: :cascade do |t|

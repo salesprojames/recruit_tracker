@@ -1,3 +1,5 @@
+include ActionView::Helpers::NumberHelper
+
 class RecruitsController < ApplicationController
   before_action :set_recruit, only: [:show, :edit, :update, :destroy]
 
@@ -25,6 +27,7 @@ class RecruitsController < ApplicationController
 
   def create
     @recruit = Recruit.new(recruit_params)
+    @recruit.phone_number = number_to_phone(@recruit.phone_number, delimiter: "", country_code: 1)
 
     respond_to do |format|
       if @recruit.save

@@ -65,7 +65,7 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:body, :recruit_id)
+      params.require(:message).permit(:body, :recruit_id, :sent_by_recruit)
     end
 
 end
