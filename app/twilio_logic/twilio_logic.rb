@@ -18,11 +18,19 @@ class TwilioLogic
     )
   end
 
-  def send_alert_message(from_number="", recruit_name="")
+  def send_alert_message(recruit)
     @client.messages.create(
       from: @twilio_number,
       to: @james_number,
-      body: "New Message From " + from_number + recruit_name
+      body: "New Message From " + recruit.name + "\n" + "https://recruits-tracker.herokuapp.com/recruits/#{recruit.id}/messages"
+    )
+  end
+
+  def send_alert_general_message(from_number)
+    @client.messages.create(
+      from: @twilio_number,
+      to: @james_number,
+      body: "New Message From " + from_number + "\n" + "https://recruits-tracker.herokuapp.com/general_messages"
     )
   end
 
@@ -33,10 +41,10 @@ class TwilioLogic
     recruit = Recruit.find_by(phone_number: from_number)
     if recruit == nil
       # make a GeneralMessage not assigned to any recruit
-      send_alert_message(from_number)
+      send_alert_general_message(from_number)
     else
       Message.create(body: message_body, recruit_id: recruit.id, sent_by_recruit: true)
-      send_alert_message(recruit.name)
+      send_alert_message(recruit)
     end
 
   end
