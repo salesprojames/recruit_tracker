@@ -5,24 +5,15 @@ class TwilioLogic
   def initialize
     @client ||= Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
     @from_number = params["From"]
-    @twilio_number = params["To"]
-    @merchant = Merchant.find_by(phone_number: @twilio_number)
+    @twilio_number = "+18147534377"
   end
 
-  def send_outgoing_message(send_outgoing_message_merchant, message)
-    if check_if_message_sent_in_last_hour(send_outgoing_message_merchant)
-      send_outgoing_message_merchant.customers.each do |customer|
-        if customer.permission_to_text
-          client.messages.create(
-            from: send_outgoing_message_merchant.phone_number,
-            to: customer.phone_number,
-            body: message.body
-          )
-        end
-      end
-    else
-      redirect_to :root_path, notice: "You Already Sent Out A Message In The Past Hour"
-    end
+  def send_outgoing_message(recruit, message)
+    client.messages.create(
+      from: twilio_number,
+      to: recruit.phone_number,
+      body: message.body
+    )
   end
 
 	def reply(params, request)

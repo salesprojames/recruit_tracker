@@ -1,0 +1,7 @@
+<% @messages.each do |message| %>
+	<%= message.body %>
+<% end -%>
+
+<!-- need to add messages pane -->
+
+<%= link_to "View Conversation", new_recruit_message_path(@recruit) %>

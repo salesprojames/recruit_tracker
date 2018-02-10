@@ -2,7 +2,10 @@ class MessagesController < ApplicationController
   before_action :load_recruit
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
-  # dont know if i will need to use this page
+  def reply
+    TwilioLogic.new.reply(params, request)
+  end
+
   def index
     @messages = @recruit.messages.all
   end
@@ -22,6 +25,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        TwilioLogic.new.send_outgoing_message(@recruit, @message)
         format.html { redirect_to root_path, notice: 'message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
