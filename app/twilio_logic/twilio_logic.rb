@@ -40,7 +40,7 @@ class TwilioLogic
     message_body = params["Body"]
     recruit = Recruit.find_by(phone_number: from_number)
     if recruit == nil
-      # make a GeneralMessage not assigned to any recruit
+      GeneralMessage.create(body: message_body, number: from_number)
       send_alert_general_message(from_number)
     else
       Message.create(body: message_body, recruit_id: recruit.id, sent_by_recruit: true)

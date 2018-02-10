@@ -16,7 +16,7 @@
     <%= form.text_field :name, class: 'form-control', required: true %><br>
 
     <%= form.label :phone_number %>
-    <%= form.phone_field :phone_number, class: 'form-control', required: true %><br>
+    <%= form.phone_field :phone_number, class: 'form-control', required: true, value: params[:phone_number]%><br>
 
     <%= form.label :email %>
     <%= form.email_field :email, class: 'form-control', required: true %><br>

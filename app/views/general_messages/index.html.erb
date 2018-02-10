@@ -1,0 +1,4 @@
+<h2>General Messages</h2>
+<% @general_messages.each do |general_message| %>
+	<p><%= general_message.body %>--Sent From: <%= general_message.number %></p> <%= link_to "Make New Recruit", new_recruit_path(:phone_number => general_message.number) %>
+<% end -%>
