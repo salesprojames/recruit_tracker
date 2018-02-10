@@ -31,6 +31,13 @@ class RecruitsController < ApplicationController
 
     respond_to do |format|
       if @recruit.save
+
+        general_messages = GeneralMessage.where(number: @recruit.phone_number)
+        general_messages.each do |general_message|
+          @recruit.messages.create(body: general_message.body, sent_by_recruit: true)
+        end
+        general_messages.destroy_all
+
         format.html { redirect_to root_path, notice: 'Recruit was successfully created.' }
         format.json { render :show, status: :created, location: @recruit }
       else
