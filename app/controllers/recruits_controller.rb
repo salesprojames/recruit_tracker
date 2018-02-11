@@ -27,7 +27,6 @@ class RecruitsController < ApplicationController
 
   def create
     @recruit = Recruit.new(recruit_params)
-    @recruit.phone_number = number_to_phone(@recruit.phone_number, delimiter: "", country_code: 1)
 
     respond_to do |format|
       if @recruit.save
