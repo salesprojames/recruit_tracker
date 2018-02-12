@@ -1,0 +1,21 @@
+<%= form_for([@recruit, @message]) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="input-group">
+    <%= form.text_field :body, class: 'form-control messages-input', required: true, placeholder: 'Enter Message' %>
+    <div class="input-group-append">
+      <span class="input-group-text"><%= form.submit "Send", style: 'background: none; border: none; color: #8C8C8C;', class: 'messages-btn' %></span>
+    </div>
+  </div>
+
+<% end %>

@@ -1,0 +1,16 @@
+<script type="text/javascript">$('html,body').animate({scrollTop: document.body.scrollHeight + 10000},"fast");</script>
+
+<div class="card" style="padding: 10px;">
+	<div class="card-block">
+		<% @messages.each do |message| %>
+				<div class="<% if message.sent_by_recruit %>message-container-recruit<% else %>message-container<% end -%>">
+					<div class="<% if message.sent_by_recruit %>message-by-recruit<% else %>message<% end -%>">
+						<% if message.sent_by_recruit %><%= message.body %><% else %><span class="pull-right"><%= message.body %></span><% end -%>
+					</div>
+				</div>
+		<% end -%>
+	</div>
+	<div class="card-footer">
+    <%= render 'form', message: @message %>
+  </div>
+</div>

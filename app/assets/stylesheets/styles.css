@@ -5,3 +5,68 @@
 .open {
 	background-color: #187FEF !important;
 }
+
+.message-container {
+	width: 75%;
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.message-container-recruit {
+	width: 75%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+@media (min-width: 0px) and (max-width: 991px) {
+	.message {
+		background-color: #BDBDBD;
+		padding: 20px;
+		border-radius: 10px;
+		float: right;
+		font-size: 40px;
+	}
+
+	.message-by-recruit {
+		background-color: #187FEF;
+		padding: 20px;
+		border-radius: 10px;
+		color: white;
+		float: left;
+		font-size: 40px;
+	}
+
+	.messages-btn {
+		height: 80px;
+		font-size: 40px;
+	}
+
+	.form-control {
+		font-size: 30px !important;
+	}
+
+	.messages-input {
+		font-size: 50px !important;
+	}
+}
+
+
+@media (min-width: 992px) {
+	.message {
+		background-color: #BDBDBD;
+		padding: 10px;
+		border-radius: 10px;
+		float: right;
+	}
+
+	.message-by-recruit {
+		background-color: #187FEF;
+		padding: 10px;
+		border-radius: 10px;
+		color: white;
+		float: left;
+	}
+}
