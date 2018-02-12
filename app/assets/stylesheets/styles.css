@@ -6,23 +6,6 @@
 	background-color: #187FEF !important;
 }
 
-.message {
-	background-color: #BDBDBD;
-	padding: 20px;
-	border-radius: 10px;
-	float: right;
-	font-size: 40px;
-}
-
-.message-by-recruit {
-	background-color: #187FEF;
-	padding: 20px;
-	border-radius: 10px;
-	color: white;
-	float: left;
-	font-size: 40px;
-}
-
 .message-container {
 	width: 75%;
 	float: right;
@@ -37,7 +20,87 @@
 	margin-bottom: 10px;
 }
 
-.messages-input {
-	height: 100px;
-	font-size: 40px;
+
+@media (max-width: 576px) {
+	.message {
+		background-color: #BDBDBD;
+		padding: 20px;
+		border-radius: 10px;
+		float: right;
+		font-size: 40px;
+	}
+
+	.message-by-recruit {
+		background-color: #187FEF;
+		padding: 20px;
+		border-radius: 10px;
+		color: white;
+		float: left;
+		font-size: 40px;
+	}
+
+	.messages-btn {
+		height: 80px;
+		font-size: 40px;
+	}
+
+	.messages-input {
+		font-size: 50px !important;
+	}
+
+	.form-control {
+		height: 80px;
+		font-size: 50px !important;
+	}
+}
+
+
+@media (min-width: 576px) and (max-width: 991px) {
+	.message {
+		background-color: #BDBDBD;
+		padding: 10px;
+		border-radius: 10px;
+		float: right;
+		font-size: 30px;
+	}
+
+	.message-by-recruit {
+		background-color: #187FEF;
+		padding: 10px;
+		border-radius: 10px;
+		color: white;
+		float: left;
+		font-size: 30px;
+	}
+
+	.messages-btn {
+		height: 50px;
+		font-size: 20px;
+	}
+
+	.messages-input {
+		font-size: 30px !important;
+	}
+
+	.form-control {
+		height: 50px;
+		font-size: 25px !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.message {
+		background-color: #BDBDBD;
+		padding: 10px;
+		border-radius: 10px;
+		float: right;
+	}
+
+	.message-by-recruit {
+		background-color: #187FEF;
+		padding: 10px;
+		border-radius: 10px;
+		color: white;
+		float: left;
+	}
 }
