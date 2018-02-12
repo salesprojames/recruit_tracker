@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body, class: 'form-control', required: true %><br>
+   <div class="input-group">
+    <%= form.text_field :body,  placeholder: 'Enter Message', class: 'form-control', required: true %>
+    <div class="input-group-append">
+      <span class="input-group-text"><%= form.submit "Send", style: 'background: none; border: none; color: #8C8C8C;' %></span>
+    </div>
   </div>
-
-  <center><%= form.submit "Send Message", class: 'col-sm-12 col-md-4 btn btn-nav btn-rounded btn-success-outline' %></center><br><br>
 
 <% end %>

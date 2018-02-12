@@ -7,30 +7,33 @@
 <div class="row">
 	<% @recruits.each do |recruit| %>
 	<% task = recruit.tasks.where(complete: false).first %>
-			<div class="col-xl-2">
+			<div class="col-md-6 col-lg-4 col-xl-2">
 				<section class="widget">
 						<header class="widget-header-dark <% if !recruit.closed %>open<% end %>">
-							<h3 style="margin: 0px;">
+							<h5 style="margin: 0px;">
 								<%= recruit.name %>
 								<div class="dropdown show pull-right">
 								  <a style="color: white;" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								    <i class="fa fa-ellipsis-v"></i>
 								  </a>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								    <%= link_to "Edit", edit_recruit_path(recruit), class: 'dropdown-item' %>
+								    <%= link_to "Edit", edit_recruit_path(recruit, :phone_number => recruit.phone_number), class: 'dropdown-item' %>
 								    <%= link_to "Delete", recruit, method: :delete, data: { confirm: 'Are You Sure?' }, class: 'dropdown-item' %>
 								    <%= link_to "View Tasks", recruit_tasks_path(recruit), class: 'dropdown-item' %>
 								    <%= link_to "View Messages", recruit_messages_path(recruit), class: 'dropdown-item' %>
 								  </div>
 								</div>
-							</h3>
+							</h5>
 
 						</header>
 						<div class="tab-content widget-tabs-content">
 							<div class="tab-pane active" id="w-1-tab-1" role="tabpanel">
 								<center>
 							  	<h4><%= recruit.phone_number %></h4>
-							  	<p><%= recruit.description %></p>
+							  	<p style="padding: 10px;" class="d-none d-xl-block"><%= recruit.description.truncate(31) %></p>
+							  	<p style="padding: 10px;" class="d-none d-lg-block d-xl-none"><%= recruit.description.truncate(49) %></p>
+							  	<p style="padding: 10px;" class="d-none d-md-block d-lg-none"><%= recruit.description.truncate(52) %></p>
+							  	<p style="padding: 10px;" class="d-md-none d-lg-none d-xl-none"><%= recruit.description %></p>
 							  </center>
 								<div class="circle-progress-bar-typical pieProgress"
 									 role="progressbar" data-goal="<%= (30.0 - (recruit.start_date + 30.days - Date.today).to_f) / 30 * 100 %>"
@@ -46,13 +49,13 @@
 											<br>Due <%= task.due_date %><br>
 					  					<% if !task.complete %>
 						  					<div class="col-sm-12">
-						  						<%= link_to "Complete", complete_recruit_task_path(recruit, task), class: 'col-sm-12 col-md-4 btn btn-nav btn-rounded btn-success-outline' %>
+						  						<%= link_to "Complete", complete_recruit_task_path(recruit, task), class: 'col-sm-12 btn btn-nav btn-rounded btn-success-outline' %>
 						  					</div>
 					  					<% end -%>
 					  				<% else %>
 					  					<h3><b style="color: red;">No Task!</b></h3>
 					  					<div class="col-sm-12">
-						  						<%= link_to "Create Task", new_recruit_task_path(recruit), class: 'col-sm-12 col-md-4 btn btn-nav btn-rounded btn-success-outline' %>
+						  						<%= link_to "Create Task", new_recruit_task_path(recruit), class: 'col-sm-12 btn btn-nav btn-rounded btn-success-outline' %>
 						  					</div>
 					  				<% end -%>
 					  			</center>

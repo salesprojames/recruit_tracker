@@ -5,3 +5,32 @@
 .open {
 	background-color: #187FEF !important;
 }
+
+.message {
+	background-color: #BDBDBD;
+	padding: 10px;
+	border-radius: 10px;
+	float: right;
+}
+
+.message-by-recruit {
+	background-color: #187FEF;
+	padding: 10px;
+	border-radius: 10px;
+	color: white;
+	float: left;
+}
+
+.message-container {
+	width: 75%;
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.message-container-recruit {
+	width: 75%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

@@ -1,7 +1,16 @@
-<% @messages.each do |message| %>
-	<%= message.body %>-<%= message.sent_by_recruit %><br>
-<% end -%>
+<div class="card" style="padding: 10px;">
+	<div class="card-block">
+		<% @messages.each do |message| %>
+				<div class="<% if message.sent_by_recruit %>message-container-recruit<% else %>message-container<% end -%>">
+					<div class="<% if message.sent_by_recruit %>message-by-recruit<% else %>message<% end -%>">
+						<% if message.sent_by_recruit %><%= message.body %><% else %><span class="pull-right"><%= message.body %></span><% end -%>
+					</div>
+				</div>
+		<% end -%>
+	</div>
+	<div class="card-footer">
+    <%= render 'form', message: @message %>
+  </div>
+</div>
 
-<!-- need to add messages pane -->
-
-<%= link_to "View Conversation", new_recruit_message_path(@recruit) %>
+<script type="text/javascript">window.scrollTo(0,document.body.scrollHeight);</script>
