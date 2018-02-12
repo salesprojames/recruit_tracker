@@ -21,7 +21,7 @@
 }
 
 
-@media (max-width: 767px) {
+@media (min-width: 575px) and (max-width: 991px) {
 	.message {
 		background-color: #BDBDBD;
 		padding: 20px;
@@ -55,38 +55,7 @@
 }
 
 
-@media (min-width: 768px) and (max-width: 991px) {
-	.message {
-		background-color: #BDBDBD;
-		padding: 10px;
-		border-radius: 10px;
-		float: right;
-		font-size: 30px;
-	}
 
-	.message-by-recruit {
-		background-color: #187FEF;
-		padding: 10px;
-		border-radius: 10px;
-		color: white;
-		float: left;
-		font-size: 30px;
-	}
-
-	.messages-btn {
-		height: 50px;
-		font-size: 20px;
-	}
-
-	.messages-input {
-		font-size: 30px !important;
-	}
-
-	.form-control {
-		height: 50px;
-		font-size: 25px !important;
-	}
-}
 
 @media (min-width: 992px) {
 	.message {
