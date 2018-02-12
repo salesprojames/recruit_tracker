@@ -20,7 +20,9 @@
 								    <%= link_to "Edit", edit_recruit_path(recruit, :phone_number => recruit.phone_number), class: 'dropdown-item' %>
 								    <%= link_to "Delete", recruit, method: :delete, data: { confirm: 'Are You Sure?' }, class: 'dropdown-item' %>
 								    <%= link_to "View Tasks", recruit_tasks_path(recruit), class: 'dropdown-item' %>
-								    <%= link_to "View Messages", recruit_messages_path(recruit), class: 'dropdown-item' %>
+								    <%= link_to recruit_messages_path(recruit), class: 'dropdown-item' do %>
+								    	View Messages <span class="badge badge-danger"><% if recruit.messages.where(read: false).count > 0 %><%= recruit.messages.where(read: false).count %><% end -%></span>
+								    <% end -%>
 								  </div>
 								</div>
 							</h5>

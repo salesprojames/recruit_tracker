@@ -10,6 +10,12 @@ class MessagesController < ApplicationController
   def index
     @messages = @recruit.messages.all
     @message = @recruit.messages.new
+
+    @messages.each do |message|
+      message.read = true
+      message.save
+    end
+
   end
 
   def show
