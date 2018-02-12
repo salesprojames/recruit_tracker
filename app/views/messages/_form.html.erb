@@ -12,9 +12,9 @@
   <% end %>
 
    <div class="input-group">
-    <%= form.text_field :body,  placeholder: 'Enter Message', class: 'form-control', required: true %>
+    <%= form.text_field :body, class: 'form-control', required: true %>
     <div class="input-group-append">
-      <span class="input-group-text"><%= form.submit "Send", style: 'background: none; border: none; color: #8C8C8C;' %></span>
+      <span class="input-group-text"><%= form.submit "Send", style: 'background: none; border: none; color: #8C8C8C;', class: 'messages-input' %></span>
     </div>
   </div>
 
