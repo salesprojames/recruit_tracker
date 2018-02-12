@@ -8,19 +8,19 @@
 
 .message {
 	background-color: #BDBDBD;
-	padding: 10px;
+	padding: 20px;
 	border-radius: 10px;
 	float: right;
-	font-size: 30px;
+	font-size: 40px;
 }
 
 .message-by-recruit {
 	background-color: #187FEF;
-	padding: 10px;
+	padding: 20px;
 	border-radius: 10px;
 	color: white;
 	float: left;
-	font-size: 30px;
+	font-size: 40px;
 }
 
 .message-container {
