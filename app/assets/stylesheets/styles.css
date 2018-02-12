@@ -44,11 +44,11 @@
 		font-size: 40px;
 	}
 
-	.messages-input {
-		font-size: 50px !important;
+	.form-control {
+		font-size: 30px !important;
 	}
 
-	.form-control {
+	.messages-input {
 		font-size: 50px !important;
 	}
 }
