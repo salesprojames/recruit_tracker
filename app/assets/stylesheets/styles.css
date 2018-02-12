@@ -21,7 +21,7 @@
 }
 
 
-@media (min-width: 575px) and (max-width: 991px) {
+@media (min-width: 0px) and (max-width: 991px) {
 	.message {
 		background-color: #BDBDBD;
 		padding: 20px;
@@ -49,12 +49,9 @@
 	}
 
 	.form-control {
-		height: 80px;
 		font-size: 50px !important;
 	}
 }
-
-
 
 
 @media (min-width: 992px) {
