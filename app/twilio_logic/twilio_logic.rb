@@ -6,8 +6,7 @@ class TwilioLogic
   def initialize
     @client ||= Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
     @twilio_number = "+18147534377"
-    #@james_number = '+12195774008'
-    @james_number = "+18145024125"
+    @james_number = '+12195774008'
   end
 
   def send_outgoing_message(recruit, message)

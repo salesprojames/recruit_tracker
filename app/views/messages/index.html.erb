@@ -1,3 +1,5 @@
+<script type="text/javascript">$('html,body').animate({scrollTop: document.body.scrollHeight + 10000},"fast");</script>
+
 <div class="card" style="padding: 10px;">
 	<div class="card-block">
 		<% @messages.each do |message| %>
@@ -12,5 +14,3 @@
     <%= render 'form', message: @message %>
   </div>
 </div>
-
-<script type="text/javascript">window.scrollTo(0,document.body.scrollHeight);</script>
