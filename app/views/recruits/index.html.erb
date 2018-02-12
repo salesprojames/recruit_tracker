@@ -1,13 +1,13 @@
 <div class="row" style="padding-left: 10px; padding-right: 10px;">
 <div class="col-sm-0 col-md-4"></div>
-<%= link_to 'New Recruit', new_recruit_path, class: "col-sm-12 col-md-4 btn btn-nav btn-rounded btn-primary-outline" %>
+<%= link_to 'New Recruit', new_recruit_path, class: "col-md-12 col-lg-4 btn btn-nav btn-rounded btn-primary-outline" %>
 </div>
 <br>
 
 <div class="row">
 	<% @recruits.each do |recruit| %>
 	<% task = recruit.tasks.where(complete: false).first %>
-			<div class="col-md-6 col-lg-4 col-xl-2">
+			<div class="col-md-12 col-lg-4 col-xl-2">
 				<section class="widget">
 						<header class="widget-header-dark <% if !recruit.closed %>open<% end %>">
 							<h5 style="margin: 0px;">

@@ -11,6 +11,7 @@
 	padding: 10px;
 	border-radius: 10px;
 	float: right;
+	font-size: 30px;
 }
 
 .message-by-recruit {
@@ -19,6 +20,7 @@
 	border-radius: 10px;
 	color: white;
 	float: left;
+	font-size: 30px;
 }
 
 .message-container {
