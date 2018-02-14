@@ -15,7 +15,7 @@
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <div class="double"><%= f.check_box :remember_me %></div>
-      <%= f.label :remember_me, style: 'display: inline-block; font-size: 20px; margin-left: 20px; vertical-align: -6px;' %>
+      <%= f.label :remember_me, style: 'display: inline-block; font-size: 20px; margin-left: 30px; vertical-align: -6px;' %>
     </div><br>
   <% end -%>
 
@@ -23,3 +23,4 @@
     <center><%= f.submit "Save", class: 'col-sm-12 col-md-4 btn btn-nav btn-rounded btn-success-outline' %></center>
   </div>
 <% end %>
+<br><br>
