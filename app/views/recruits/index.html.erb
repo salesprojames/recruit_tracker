@@ -3,11 +3,12 @@
 <%= link_to 'New Recruit', new_recruit_path, class: "col-md-12 col-lg-4 btn btn-nav btn-rounded btn-primary-outline" %>
 </div>
 <br>
+<input type="text" name="search" id="searchbox" placeholder="Enter Search" class="form-control" onkeyup="search()"><br>
 
 <div class="row">
 	<% @recruits.each do |recruit| %>
 	<% task = recruit.tasks.where(complete: false).first %>
-			<div class="col-md-12 col-lg-4 col-xl-2">
+			<div class="col-md-12 col-lg-4 col-xl-2 searchable">
 				<section class="widget">
 						<header class="widget-header-dark <% if !recruit.closed %>open<% end %>">
 							<h5 style="margin: 0px;">
@@ -68,6 +69,23 @@
 			</div>
 	<% end %>
 </div>
+
+<script type="text/javascript">
+		var searchables = document.getElementsByClassName('searchable');
+		var query;
+		
+		function search() {
+			query = searchbox.value.toLowerCase();
+			for (i=0; i < searchables.length; i++) {
+				if (searchables[i].innerText.toLowerCase().indexOf(query) != -1) {
+					searchables[i].classList.remove("d-none");
+				} else {
+					searchables[i].classList.add("d-none");
+				}
+			}
+
+		}
+	</script>
 
 	
 	<script>
