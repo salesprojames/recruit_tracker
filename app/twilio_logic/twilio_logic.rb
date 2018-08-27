@@ -2,6 +2,7 @@ require 'twilio-ruby'
 include ActionView::Helpers::NumberHelper
 
 class TwilioLogic
+  skip_before_action :verify_authenticity_token
 
   def initialize
     @client ||= Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
