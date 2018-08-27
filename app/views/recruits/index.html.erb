@@ -48,7 +48,7 @@
 								</div><br>
 									<center>
 										<% if task != nil %>
-											<b><%= task.name %></b> 
+											<b><%= task.name %></b>
 											<br>Due <%= task.due_date %><br>
 					  					<% if !task.complete %>
 						  					<div class="col-sm-12">
@@ -70,10 +70,15 @@
 	<% end %>
 </div>
 
+<script src="js/lib/asPieProgress/jquery-asPieProgress.min.js"></script>
+<script src="js/lib/select2/select2.full.min.js"></script>
+<script type="text/javascript" src="js/lib/match-height/jquery.matchHeight.min.js"></script>
+<script src="js/lib/slick-carousel/slick.min.js"></script>
+
 <script type="text/javascript">
 		var searchables = document.getElementsByClassName('searchable');
 		var query;
-		
+
 		function search(searchbox) {
 			query = searchbox.value.toLowerCase();
 			for (i=0; i < searchables.length; i++) {
@@ -86,7 +91,7 @@
 		}
 	</script>
 
-	
+
 	<script>
 		$(function() {
 			$(".circle-progress-bar").asPieProgress({
