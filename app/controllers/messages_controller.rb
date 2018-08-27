@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :reply
   before_action :load_recruit, except: :reply
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: :reply
 
   def reply
     TwilioLogic.new.reply(params, request)

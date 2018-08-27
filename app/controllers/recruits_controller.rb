@@ -2,6 +2,7 @@ include ActionView::Helpers::NumberHelper
 
 class RecruitsController < ApplicationController
   before_action :set_recruit, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
 
   def index

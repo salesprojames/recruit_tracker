@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :load_recruit
   before_action :set_task, only: [:show, :edit, :update, :destroy, :complete]
+  before_action :authenticate_user!
 
   # dont know if i will need to use this page
   def index

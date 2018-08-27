@@ -1,5 +1,6 @@
 class GeneralMessagesController < ApplicationController
   before_action :set_general_message, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @general_messages = GeneralMessage.all
